@@ -24,5 +24,10 @@ def build_app():
     @app.route('/')
     def root():
         return render_template('index.html')
-
+    # this route 
+    @app.route('/index.html')
+    def return_to_home():
+        return render_template('index.html')
+    @app.route('/chart.html')
+    # def submission_
     return app
