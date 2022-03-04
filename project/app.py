@@ -7,7 +7,6 @@ def build_app():
 
     app = Flask(__name__)
 
-    # To use the HTML5 template
 
     js = Bundle('breakpoints.min.js', 'browser.min.js', 'jquery.dropotron.min.js',
                 'jquery.min.js', 'jquery.scrollex.min.js', 'main.js', 'util.js',
@@ -50,4 +49,3 @@ def build_app():
                                 room_type=room_type,
                                 desc=desc)
     return app
-    # oeinef
