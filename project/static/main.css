@@ -2403,7 +2403,7 @@
 		.icon.major {
 			background: #666;
 			border-radius: 100%;
-			color: #ffffff;
+			color: #9b1313;
 			cursor: default;
 			display: inline-block;
 			height: 5.5em;
@@ -3162,8 +3162,8 @@
 
 	#banner {
 		background-attachment: scroll,							fixed;
-		background-color: #666;
-		background-image: url("images/overlay.png"), url("../../images/banner.jpg");
+		background-color: #777;
+		background-image: url("overlay.png"), url("banner.jpg");
 		background-position: top left,						center center;
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
