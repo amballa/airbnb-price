@@ -4,6 +4,8 @@ from .model import user_desc
 import pickle
 import pandas as pd
 import numpy as np
+import keras
+import tensorflow as tf
 
 
 def build_app():
@@ -38,24 +40,28 @@ def build_app():
         min_nights = int(request.values['minimum_nights'])
         max_nights = int(request.values['maximum_nights'])
         amnt_amenities = int(request.values['amnt_amenities'])
-        room_type = int(request.values['room_type'])
+        room_type = request.values['room_type']
         desc = request.values['desc']
 
         user_arr = np.array([room_type, capacity, bedrooms,
                             beds, min_nights, max_nights, amnt_amenities, baths])
 
         df_nlp = user_desc(desc)
-        arr_nlp = df_nlp.to_numpy()
+        arr_nlp = df_nlp.to_numpy().flatten()
 
         user_arr = np.concatenate((user_arr, arr_nlp))
         user_arr_reshaped = user_arr.reshape(1, len(user_arr))
 
         # Model
-        model = pickle.load(open('best_regressor', 'rb'))
+        #model = pickle.load(open('project/best_regressor', 'rb'))
 
-        result = model.predict(user_arr_reshaped)
+        graph = tf.compat.v1.get_default_graph()
 
-        price = result[0][0]
+        with graph.as_default():
+            model = keras.models.load_model("project/keras_model")
+            result = model.predict(user_arr_reshaped)
+
+        price = round(result[0][0])
 
         return render_template('results.html', price=price)
 
