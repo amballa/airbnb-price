@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<!-- Template by HTML5UP.com
+EDITED AND CUSTOMIZED BY ISAAC ZARSPADA -->
+<html>
+
+<head>
+	<title>Airbnb Optimal Price</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	{% assets "all_css" %}
+	<link rel="stylesheet" href="{{ ASSET_URL }}" />
+	{% endassets %}
+</head>
+
+<body class="landing is-preload">
+	<div id="page-wrapper">
+		<!-- Header -->
+		<header id="header" class="alt">
+			<h1><a href="index.html">Airbnb Optimal Price</a> Abdel Balla, Isaac Zarspada, Lucas Hernandez</h1>
+			<nav id="nav">
+				<ul>
+					<li><a href="index.html" class='button'>Home</a></li>
+					<li><a href="charts.html" class='button'>Previous Charts</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Banner -->
+		<section id="banner">
+			<h2>Airbnb Optimal Price</h2>
+			<p1>Using historical booking data to predict the optimal price for an AirBnB</p1>
+		</section>
+
+		<!-- Main -->
+		<section id="main" class="container">
+			<div class="box">
+				{{capacity}}
+				{{bedrooms}}
+				{{beds}}
+				{{baths}}
+				{{minimum_nights}}
+				{{maximum_nights}}
+				{{amnt_amenities}}
+				{{room_type}}
+				{{desc}}
+			</div>
+		</section>
+	<!-- Footer -->
+		<footer id="footer">
+			<ul class="icons">
+				<!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> MEDIUM -->
+				<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	{% assets "all_js" %}
+	<script type="text/javascript" src="{{ ASSET_URL }}"></script>
+	{% endassets %}
+
+</body>
+
+</html>

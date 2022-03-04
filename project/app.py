@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from flask_assets import Bundle, Environment
+from tables import Description
 
 
 def build_app():
@@ -19,15 +20,33 @@ def build_app():
     assets.register('all_js', js)
     assets.register('all_css', css)
 
-    # app routesc
-
     @app.route('/')
     def root():
         return render_template('index.html')
-    # this route 
-    @app.route('/index.html')
+
+    @app.route('/#')
     def return_to_home():
         return render_template('index.html')
-    @app.route('/chart.html')
-    # def submission_
+    
+    @app.route('/results', methods=['POST'])
+    def display_results():
+        capacity = request.values['capacity']
+        bedrooms = request.values['bedrooms']
+        beds = request.values['beds']
+        baths = request.values['baths']
+        min_nights = request.values['minimum_nights']
+        max_nights = request.values['maximum_nights']
+        amnt_amenities = request.values['amnt_amenities']
+        room_type = request.values['room_type']
+        desc = request.values['desc']
+        return render_template('results.html', 
+                                capacity=capacity,
+                                bedrooms=bedrooms,
+                                beds=beds,
+                                baths=baths,
+                                min_nights=min_nights,
+                                max_nights=max_nights,
+                                amnt_amenities=amnt_amenities,
+                                room_type=room_type,
+                                desc=desc)
     return app
