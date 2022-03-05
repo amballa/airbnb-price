@@ -30,7 +30,7 @@ def build_app():
     @app.route('/#')
     def return_to_home():
         return render_template('index.html')
-    
+
     @app.route('/results', methods=['POST'])
     def display_results():
         capacity = int(request.values['capacity'])
